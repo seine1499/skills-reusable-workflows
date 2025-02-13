@@ -1,3 +1,8 @@
+# コメント行を追加するだけでもOK
+# name: Starter Workflow
+
+
+
 name: Starter Workflow
 
 on:
