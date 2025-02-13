@@ -14,4 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Output the input value
-        run: echo "The node version to use is: ${{ inputs.node }}"
+        run: |
+          echo "The node version to use is: ${{ inputs.node }}"
+
