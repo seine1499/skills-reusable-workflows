@@ -1,12 +1,17 @@
-name: Starter Workflow
+name: Reusable Workflow
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:  # ✅ 他のワークフローから呼び出せるようにする
+    inputs:
+      node:
+        required: true
+        type: string
 
 jobs:
-  call-reusable-workflow:
-    uses: ./.github/workflows/reusable-workflow.yml
-    with:
-      node: 14
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Output the input value
+        run: echo "The node version to use is: ${{ inputs.node }}"
